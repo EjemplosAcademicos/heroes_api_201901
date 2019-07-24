@@ -1,4 +1,4 @@
-package co.udea.heroes.api.service.service;
+package co.udea.heroes.api.service;
 
 import co.udea.heroes.api.model.Hero;
 import org.springframework.stereotype.Service;
@@ -16,5 +16,10 @@ public class HeroService implements HeroServiceInt{
         heroes.add(new Hero("2","Tormenta"));
         heroes.add(new Hero("2","Ciplope"));
         return heroes;
+    }
+
+    @Override
+    public Hero getHero(int id) {
+        return new Hero("1","Super Man");
     }
 }
