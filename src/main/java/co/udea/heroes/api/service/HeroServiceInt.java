@@ -7,5 +7,6 @@ import java.util.List;
 public interface HeroServiceInt {
 
     public List<Hero> getHeroes();
-    public Hero getHero(int id);
+    public Hero getHero(String id);
+    public Hero getHeroByName(String name);
 }
