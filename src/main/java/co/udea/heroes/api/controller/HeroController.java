@@ -5,18 +5,19 @@ import co.udea.heroes.api.service.HeroServiceInt;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/tour-heroes")
 public class HeroController {
+
+    private final Logger log = LoggerFactory.getLogger(HeroController.class);
 
     private HeroServiceInt heroService;
 
@@ -36,7 +37,13 @@ public class HeroController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Hero> getHero(@PathVariable("id") String id){
+        log.debug("REST request buscar heroe");
         return ResponseEntity.ok(heroService.getHero(id));
+    }
+
+    @PostMapping()
+    public ResponseEntity<Hero> addHero(@RequestBody Hero hero){
+        return ResponseEntity.ok(heroService.addHero(hero));
     }
 
     @GetMapping("name/{name}")
