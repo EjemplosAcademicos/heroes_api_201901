@@ -3,6 +3,7 @@ package co.udea.heroes.api.service;
 import co.udea.heroes.api.exception.DataNotFoundException;
 import co.udea.heroes.api.model.Hero;
 import co.udea.heroes.api.repository.HeroRepository;
+import co.udea.heroes.api.util.Messages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,11 @@ public class HeroService implements HeroServiceInt{
 
     private final Logger log = LoggerFactory.getLogger(HeroService.class);
 
-
+    private Messages messages;
     private HeroRepository heroRepository;
 
-    public HeroService(HeroRepository heroRepository){
+    public HeroService(HeroRepository heroRepository, Messages messages){
+        this.messages = messages;
         this.heroRepository = heroRepository;
     }
 
@@ -35,7 +37,8 @@ public class HeroService implements HeroServiceInt{
             return posibleHero.get();
         }else {
             log.error("No existe un heroe con ese id");
-            throw new DataNotFoundException("No existe un heroe con id: "+ id);        }
+            throw new DataNotFoundException(messages.get("exception.data_not_found.hero"));
+        }
     }
 
     @Override

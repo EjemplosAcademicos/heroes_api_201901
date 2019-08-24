@@ -20,7 +20,11 @@ spring:
     username: postgres
     password:
 
+  messages:
+    basename: bundles/apiLanguageBundle
+
 logging:
   level:
     root: INFO
   file: heroapi.log
+
