@@ -2,7 +2,7 @@
 server:
   servlet:
     context-path: /heroes-api
-  port: 8081
+  port: 8080
 # Spring properties
 spring:
   # Dev is active by default. This value can be overwritten by java arg param 

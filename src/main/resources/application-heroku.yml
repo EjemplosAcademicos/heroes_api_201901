@@ -19,6 +19,9 @@ spring:
     driver-class-name: org.postgresql.Driver
     username:
     password:
+    hikari:
+      idle-timeout: 10000
+      maximum-pool-size: 5
 
   messages:
     basename: bundles/apiLanguageBundle

@@ -2,6 +2,7 @@ package co.udea.heroes.api.service;
 
 import co.udea.heroes.api.exception.DataNotFoundException;
 import co.udea.heroes.api.model.Hero;
+import co.udea.heroes.api.model.PoderxHeroe;
 import co.udea.heroes.api.repository.HeroRepository;
 import co.udea.heroes.api.util.Messages;
 import org.slf4j.Logger;
@@ -55,4 +56,6 @@ public class HeroService implements HeroServiceInt{
             return null;
         }
     }
+
+
 }

@@ -1,7 +1,9 @@
 package co.udea.heroes.api.controller;
 
 import co.udea.heroes.api.model.Hero;
+import co.udea.heroes.api.model.PoderxHeroe;
 import co.udea.heroes.api.service.HeroServiceInt;
+import co.udea.heroes.api.service.PoderxHeroeService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -20,9 +22,11 @@ public class HeroController {
     private final Logger log = LoggerFactory.getLogger(HeroController.class);
 
     private HeroServiceInt heroService;
+    private PoderxHeroeService poderxHeroeService;
 
-    public HeroController (HeroServiceInt heroService){
+    public HeroController (HeroServiceInt heroService, PoderxHeroeService poderxHeroeService){
         this.heroService = heroService;
+        this.poderxHeroeService = poderxHeroeService;
     }
 
     @GetMapping
